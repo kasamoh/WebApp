@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+       <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <link rel="stylesheet" media="screen" href="static/bootstrap.min.css">
+       <link rel="stylesheet" href="static/bootstrap-theme.min.css">
+       <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Philosophy Game</title>
+  </head>
+  
+  
+  
+  <body>
+    
+    
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#"><strong><h1 style = "font-family:georgia,garamond,serif;font-size:26px;font-style:italic;">{{ "Tous les chemins mènent à la philosophie ... " }}</h1></strong></a>
+    </nav>
+    
+    {% block body %}
+      {# Début du bloc "body", dont vous devez modifier le contenu #}
+    
+      <div class="card" style="width: 200rem;" >
+          <div class="card-body">
+            <h1>
+          <img src="/static/wikipedia-logo.png" alt="Wiki" class="centerImage" sizes="(max-width: 30px) 100vw, 50px">
+
+          <a href="./" style="text-decoration:none" > <strong>Commencer le jeux Philosophy </strong> </a>
+        </h1>
+          </div>
+        </div>
+
+      <div class="container">
+
+
+      <br>
+      <p> Veuillez saisir un nom d'article</p>
+
+
+
+    <form action="/new-game" method="post">
+
+    	<div  class="form-group">
+    	    <input type="text" class="form-control" name="start" placeholder="Veuillez saisir un article" >
+    	</div>
+    <div class="button">
+        <button type="submit" class="btn btn-success" style="float: right;" >Start Game</button>
+    </div>
+
+
+     </form>
+
+  <div>
+     <div class="score">
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+          {% for message in messages %}
+
+          {% if 'gagnée' in message %}
+          <div class="alert alert-success">
+          <center>
+          <h1><strong>{{ message }}</strong></h1>
+         </center>
+        </div>
+           {% endif %}
+           {% endfor %}
+           {% endif %}
+
+        {% endwith %}
+
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          
+                {% for message in messages %}
+                {% if 'score' in message %}
+                <div class="alert alert-primary">
+                <center>
+                <h4><strong>{{ message }}</strong></h4>
+               </center>
+              </div>
+              {% endif %}
+
+              {% if 'parcours est' in message %}
+              <div class="alert alert-primary">
+              <center>
+              <p><strong>{{ message }}</strong></p>
+             </center>
+            </div>
+            {% endif %}
+
+            
+
+            {% if 'finie' in message %}
+            <div class="alert alert-danger">
+            <center>
+            <h3><strong>{{ message }}</strong></h3>
+           </center>
+          </div>
+          {% endif %}
+
+
+
+                {% endfor %}
+             </ul>
+          {% endif %}
+      
+       {% endwith %}
+      
+  </div>
+
+            
+            {# Fin du bloc "body" #}
+            {% endblock %}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+  </body>
+</html>

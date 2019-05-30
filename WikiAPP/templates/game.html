@@ -1,0 +1,116 @@
+
+
+
+{% extends "index.html" %}
+      {% block body %}
+
+    <div class="card" style="width: 200rem;" >
+            <div class="card-body">
+            <h1>
+            <img src="/static/wikipedia-logo.png" alt="Wiki" class="centerImage" sizes="(max-width: 150px) 100vw, 50px">
+            <a href="./" style="text-decoration:none"> <strong>{{ "Titre de la page courante  : "+session.article }}</strong> </a>
+            </h1>    
+            </div>
+            
+    </div>
+
+    
+    
+    
+    <div class="container">    
+        <form action="/move" method="post">
+    
+        <input type="hidden" name="sessionidentifier" value="{{ session.identifier }}">
+
+        <h3> Veuillez selectionner un article  </h3>
+        <br>
+        <div>
+            <label class="hover1">
+             <input type="radio" name="destination" value= "{{ listeliens[0] }}" checked >
+            <span class="hover1">{{ listeliens[0] }}</span>
+        </label>
+        </div>
+     
+           {% for lien in listeliens %}
+            {% if loop.index >1 %}
+             <div>
+                <label class="hover1">
+                <input type="radio" name="destination" value= "{{ lien }}" >
+                <span >{{ lien }}</span>
+                </label>
+             </div>
+            {% endif %}
+            {% endfor %}
+
+ 
+        <div class="btn-group"  style="float: right;">
+            <button type="submit" class="btn btn-success btn-space" style="float: right;">Move </button>
+            <button type ="button" onclick="location.href='./';" class="btn btn-danger " style="float: right;"> Stop</button>
+        </div>
+
+
+     </form>
+
+    <div>
+     <div class="score">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+            {% for message in messages %}
+           
+            {% if 'Votre parcours' in message %}
+            <div class="alert alert-primary">
+            <center>
+            <p><strong>{{ message }}</strong></p>
+           </center>
+            </div>
+             {% endif %}
+             {% endfor %}
+             {% endif %}
+  
+            {% endwith %}
+  
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              
+                  {% for message in messages %}
+                  {% if 'score' in message %}
+                  <div class="alert alert-primary">
+                  <center>
+                  <h4><strong>{{ message }}</strong></h4>
+                 </center>
+                </div>
+                {% endif %}
+  
+                {% if 'gagnée' in message %}
+                <div class="alert alert-success">
+                <center>
+                <h3><strong>{{ message }}</strong></h3>
+               </center>
+              </div>
+              {% endif %}
+  
+              
+  
+              {% if 'finie' in message %}
+              <div class="alert alert-danger">
+              <center>
+              <h3><strong>{{ message }}</strong></h3>
+             </center>
+            </div>
+            {% endif %}
+  
+  
+  
+                  {% endfor %}
+               </ul>
+            {% endif %}
+        
+         {% endwith %}
+        
+        </div>
+    </div>
+
+ {% endblock %}
+
+

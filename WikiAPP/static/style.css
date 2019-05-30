@@ -1,0 +1,80 @@
+
+      body {
+        margin:10px 0px; padding:0px;
+    }
+
+  container{
+  display: inline-block;
+  width:1000px;
+
+    }
+    form {
+  display: inline-block;
+  width:1000px;
+  border: 1px solid rgb(230, 230, 230);
+  padding: 5px 5px;
+   margin: 5px 0;}
+   span {
+margin-left: 20px;
+}
+label.hover1:hover{
+color: rgb(48, 94, 47);
+background-color: rgb(236, 235, 235);
+height: 20px;
+width:995px ;
+line-height: 20px;
+display: block;
+}
+
+.visibibility {
+visibility:hidden;
+
+}
+
+input[type=checkbox]+label {
+  font-weight: normal;
+}
+input[type=checkbox]:checked+label {
+  font-weight: bold;
+}
+input[type=checkbox]:focus+label {
+  border: 1px dotted #000;
+}
+
+  radio {
+  display:inline-block;
+  width:19px;
+  height:19px;
+  margin:-2px 10px 0 0;
+  vertical-align:middle;
+  visibility:hidden;
+
+}
+div.score{
+  display: inline-block;
+  width:100px;
+  padding: 5px 5px;
+   margin: 5px 0;}
+
+.alert {
+ width:950px;    
+}
+
+    
+.centerImage
+{
+max-width: 100px; 
+max-height: 100px;
+margin-left: 100;
+width: 40%;
+
+
+}     
+
+
+@import url('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css');
+
+.btn-space
+{
+  margin-right:0.9rem;
+}
