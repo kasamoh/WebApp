@@ -8,3 +8,6 @@ In order to verify this assertion, I developped a small WebApp with 2 simple opt
 - A manual Wikipedia Link explorer that requests Wikipedia’s API
 - An automatic exploration that systematically chooses the first link among results
 
+
+![](https://raw.githubusercontent.com/kasamoh/WebApp/master/WikiAPP/static/wikipedia.JPG)
+
